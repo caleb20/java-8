@@ -2,6 +2,7 @@ package com.caleb.example_01;
 
 import java.math.BigDecimal;
 import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.List;
 
 public class SortWithLambda {
@@ -17,11 +18,30 @@ public class SortWithLambda {
 
 		System.out.println("After Sort");
 
-		//lambda here!
-		listDevs.sort((Developer o1, Developer o2)->o1.getAge()-o2.getAge());
+		// lambda here!
+		listDevs.sort((Developer o1, Developer o2) -> o1.getAge() - o2.getAge());
+
+		// java 8 only, lambda also, to print the List
+		listDevs.forEach((developer) -> System.out.println(developer));
+
+		System.out.println("Sort by name");
+
+		// order by name
+		listDevs.sort((Developer d1, Developer d2) -> d1.getName().compareTo(d2.getName()));
+		listDevs.forEach((dev) -> System.out.println(dev));
+
+		System.out.println("Sort by salary");
+
+		// order by salary
+		listDevs.sort((Developer d1, Developer d2) -> d1.getSalary().compareTo(d2.getSalary()));
+		listDevs.forEach((dev) -> System.out.println(dev));
+
+		System.out.println("Sort by name reverse");
 		
-		//java 8 only, lambda also, to print the List
-		listDevs.forEach((developer)->System.out.println(developer));
+		// order by name reverse
+		Comparator<Developer> nameComparator = (d1, d2) -> d1.getName().compareTo(d2.getName());
+		listDevs.sort(nameComparator.reversed());
+		listDevs.forEach((dev) -> System.out.println(dev));
 	}
 
 	private static List<Developer> getDevelopers() {
