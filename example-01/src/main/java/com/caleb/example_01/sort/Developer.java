@@ -1,4 +1,4 @@
-package com.caleb.example_01;
+package com.caleb.example_01.sort;
 
 import java.math.BigDecimal;
 
