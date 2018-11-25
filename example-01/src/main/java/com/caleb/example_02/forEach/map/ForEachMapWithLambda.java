@@ -1,4 +1,4 @@
-package com.caleb.example_02.forEach;
+package com.caleb.example_02.forEach.map;
 
 import java.util.HashMap;
 import java.util.Map;
